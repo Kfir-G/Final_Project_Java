@@ -9,7 +9,10 @@ public class Student extends Person
 
     }
     //------------methods-----------------
-    public boolean match(String key);
+    public boolean match(String key)
+    {
+        if(super(key) || key.equals(studentID))
+    }
     protected boolean validateData();
     protected void commit();
     protected void rollBack();
