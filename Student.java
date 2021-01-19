@@ -1,3 +1,5 @@
+import java.awt.*;
+import java.util.*;
 public class Student extends Person
 {
     //-----------data fields--------------
@@ -11,7 +13,11 @@ public class Student extends Person
     //------------methods-----------------
     public boolean match(String key)
     {
-        if(super(key) || key.equals(studentID))
+        if(key.equals(this.id)) //? can I send to Person methods?
+            return true;
+        if(key.substring(5).equals(this.id))
+            return true;
+        return false;
     }
     protected boolean validateData();
     protected void commit();
