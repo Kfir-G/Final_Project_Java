@@ -10,9 +10,7 @@ public class Soldier extends Person
     //------------methods--------------
     public boolean match(String key)
     {
-        if(key.equals(this.id) || key.equals(this.personalNum)) //? can I send to Person methods?
-            return true;
-        return false;       
+        return (super.match(key) || key.equals(this.personalNum)) ? true : false; 
     }
     protected boolean validateData();
     protected void commit();

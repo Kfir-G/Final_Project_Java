@@ -14,9 +14,7 @@ public class Person extends ClubAbstractEntity
     //----------methods-------------------
     public boolean match(String key)
     {
-        if(key.equals(this.id))
-            return true;
-        return false;
+        return key.equals(this.id) ? true: false; 
     }
 
     protected boolean validateData();

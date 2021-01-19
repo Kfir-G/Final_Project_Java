@@ -13,11 +13,7 @@ public class Student extends Person
     //------------methods-----------------
     public boolean match(String key)
     {
-        if(key.equals(this.id)) //? can I send to Person methods?
-            return true;
-        if(key.substring(5).equals(this.id))
-            return true;
-        return false;
+        return (super.match(key) || key.substring(5).equals(this.id)) ? true : false ;
     }
     protected boolean validateData();
     protected void commit();
