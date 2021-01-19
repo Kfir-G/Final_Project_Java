@@ -6,6 +6,11 @@ public class Person extends ClubAbstractEntity
     String surname; //last name
     String tel;     //telephone
 
+    private JTextField id;
+    private JTextField name;
+    private JTextField surname;
+    private JTextField tel;
+
     //----------constructors---------------
     public Person()
     {

@@ -2,6 +2,8 @@ public class Soldier extends Person
 {
     //-----------data fields-----------
     String personalNum;
+
+    private JTextField personalNum;
     //-----------constructors----------
     public Soldier()
     {

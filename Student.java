@@ -5,6 +5,7 @@ public class Student extends Person
     //-----------data fields--------------
     String studentID;
 
+    private JTextField studentID;
     //-----------constructors-------------
     public Student()
     {
