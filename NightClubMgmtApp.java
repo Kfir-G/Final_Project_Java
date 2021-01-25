@@ -1,10 +1,9 @@
-// File: NightClubMgmtApp.java
 import java.util.*;
 public class NightClubMgmtApp
 {
-    //Night-Club Regular Customers Repository
     private ArrayList<ClubAbstractEntity> clubbers;
     private Scanner sc;
+    
     public NightClubMgmtApp()
     {
         clubbers = new ArrayList<>();
