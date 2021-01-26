@@ -29,9 +29,13 @@ public abstract class ClubAbstractEntity extends JFrame
         this.cancelButton.addActionListener(handler); 
     }  
     //-----------methods----------
+    protected void addToCenter(Component guiComponent)
+    {
+        this.mainPanel.add(guiComponent,BorderLayout.CENTER);
+    }
     private class ButtonsHandler implements ActionListener
     {
-
+        
     }
     //absracts:
     public abstract boolean match(String key);
