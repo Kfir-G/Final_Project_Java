@@ -35,6 +35,8 @@ public abstract class ClubAbstractEntity extends JFrame
     }
     private class ButtonsHandler implements ActionListener
     {
+        //test
+        /////
         
     }
     //absracts:
