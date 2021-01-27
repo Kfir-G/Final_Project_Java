@@ -27,6 +27,15 @@ public abstract class ClubAbstractEntity extends JFrame
         this.okButton.addActionListener(handler); 
         this.cancelButton=new JButton("CANCEL");
         this.cancelButton.addActionListener(handler); 
+
+        JPanel subJP = new JPanel();
+        subJP.add(cancelButton);
+        subJP.add(okButton);
+        mainPanel.add(subJP,BorderLayout.SOUTH); 
+        
+        frame.setContentPane(mainPanel); 
+        frame.setVisible(true); 
+        frame.setResizable(false); 
     }  
     //-----------methods----------
     protected void addToCenter(Component guiComponent)
@@ -35,9 +44,17 @@ public abstract class ClubAbstractEntity extends JFrame
     }
     private class ButtonsHandler implements ActionListener
     {
-        //test
-        /////
-        
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == okButton && validateData()){
+                commit(); 
+                mainPanel.setVisible(false); 
+            }
+            if (e.getSource() == cancelButton){
+                rollBack(); 
+                mainPanel.setVisible(false); 
+            }
+        } 
     }
     //absracts:
     public abstract boolean match(String key);
