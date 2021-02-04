@@ -15,7 +15,7 @@ public class Person extends ClubAbstractEntity
     //----------constructors---------------
     public Person()
     {
-
+        
     }
     //----------methods-------------------
     public boolean match(String key)
