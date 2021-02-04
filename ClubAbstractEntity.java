@@ -34,9 +34,7 @@ public abstract class ClubAbstractEntity extends JFrame
         this.mainPanel.add(guiComponent,BorderLayout.CENTER);
     }
     private class ButtonsHandler implements ActionListener
-    {
-        
-        
+    { 
     }
     //absracts:
     public abstract boolean match(String key);
