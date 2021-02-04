@@ -36,6 +36,7 @@ public abstract class ClubAbstractEntity extends JFrame
     private class ButtonsHandler implements ActionListener
     {
         
+        
     }
     //absracts:
     public abstract boolean match(String key);
