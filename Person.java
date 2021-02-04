@@ -13,9 +13,20 @@ public class Person extends ClubAbstractEntity
     private JTextField tel;
 
     //----------constructors---------------
-    public Person()
-    {
-        
+    public Person(String idP, String nameP, String surnameP ,String telP){
+        super();
+        this.idP = idP;
+        this.nameP = nameP;
+        this.surnameP = surnameP;
+        this.telP = telP;
+
+
+        JFrame mainFrame = new JFrame();
+        mainFrame.setTitle("Person Clubber's Data");
+        mainFrame.setSize(450,220);
+
+        // init GUI elements
+
     }
     //----------methods-------------------
     public boolean match(String key)
