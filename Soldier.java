@@ -1,20 +1,30 @@
-public class Soldier extends Person
-{
-    //-----------data fields-----------
-    String personalNum;
+// import java.awt.*;
+// import java.util.*;
+// import javax.swing.*;
 
-    private JTextField personalNum;
-    //-----------constructors----------
-    public Soldier()
-    {
+// public class Soldier extends Person
+// {
+//     //-----------data fields-----------
+//     String personalNumP;
 
-    }
-    //------------methods--------------
-    public boolean match(String key)
-    {
-        return (super.match(key) || key.equals(this.personalNum)) ? true : false; 
-    }
-    protected boolean validateData();
-    protected void commit();
-    protected void rollBack();
-}
+//     private JTextField personalNumT;
+//     //-----------constructors----------
+//     public Soldier()
+//     {
+//         super();
+//     }
+//     //------------methods--------------
+//     public boolean match(String key)
+//     {
+//         return (super.match(key) || key.equals(this.personalNum)) ? true : false; 
+//     }
+//     protected boolean validateData(){
+
+//     }
+//     protected void commit(){
+
+//     }
+//     protected void rollBack(){
+
+//     }
+// }

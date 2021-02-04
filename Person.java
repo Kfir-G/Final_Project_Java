@@ -2,7 +2,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-
 public class Person extends ClubAbstractEntity
 {
     
@@ -25,6 +24,7 @@ public class Person extends ClubAbstractEntity
         this.surnameP = surnameP;
         this.telP = telP;
 
+
         JFrame mainFrame = new JFrame();
         mainFrame.setTitle("Person Clubber's Data");
         mainFrame.setSize(450,220);
@@ -32,11 +32,14 @@ public class Person extends ClubAbstractEntity
         // init GUI elements
 
     }
+    
+
     //----------methods-------------------
     public boolean match(String inputId){
         return inputId.equals(this.idP) ? true: false;
 
     }
+
     protected boolean validateData(){
         String id = idT.getText();
         String name = nameT.getText();
@@ -56,6 +59,8 @@ public class Person extends ClubAbstractEntity
         this.surnameP = surnameT.getText();
         this.telP = telT.getText();
     }
+
+
     protected void rollBack(){
         this.idT.setText(idP);
         this.nameT.setText(nameP);
