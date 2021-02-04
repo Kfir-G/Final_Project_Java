@@ -3,7 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public abstract class ClubAbstractEntity extends JFrame
 {
     //-----------data fields---------
@@ -23,6 +22,7 @@ public abstract class ClubAbstractEntity extends JFrame
         this.mainPanel=new JPanel();
         mainPanel.setPreferredSize(new Dimension(450,220));
         mainPanel.setLayout(new BorderLayout()); 
+
         this.okButton=new JButton("OK");
         this.okButton.addActionListener(handler); 
         this.cancelButton=new JButton("CANCEL");
@@ -32,7 +32,8 @@ public abstract class ClubAbstractEntity extends JFrame
         subJP.add(cancelButton);
         subJP.add(okButton);
         mainPanel.add(subJP,BorderLayout.SOUTH); 
-        
+
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);   
         frame.setContentPane(mainPanel); 
         frame.setVisible(true); 
         frame.setResizable(false); 

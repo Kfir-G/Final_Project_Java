@@ -1,3 +1,4 @@
+// File: NightClubMgmtApp.java
 import java.util.*;
 public class NightClubMgmtApp
 {
@@ -6,6 +7,7 @@ public class NightClubMgmtApp
     
     public NightClubMgmtApp()
     {
+        // File: NightClubMgmtApp.java
         clubbers = new ArrayList<>();
         sc = new Scanner(System.in);
         loadClubbersDBFromFile();
