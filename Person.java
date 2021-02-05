@@ -30,7 +30,8 @@ public class Person extends ClubAbstractEntity
         this.telT= new JTextField("telT");
         
         setSize(450,220);
-<<<<<<< HEAD
+
+
         setTitle("Person Clubber's Data");
 
         JPanel mainGui = new JPanel();
@@ -56,13 +57,19 @@ public class Person extends ClubAbstractEntity
         mainGui.add(textPanel,BorderLayout.CENTER);
         // pack();
         setVisible(true);
-=======
+
         addToCenter(this.idT);
         addToCenter(this.nameT);
         addToCenter(this.surnameT);
         addToCenter(this.telT);
         
->>>>>>> parent of ec086f4... GUI fixed
+
+
+        addToCenter(this.idT);
+        addToCenter(this.nameT);
+        addToCenter(this.surnameT);
+        addToCenter(this.telT);
+        
 
         // init GUI elements
         
