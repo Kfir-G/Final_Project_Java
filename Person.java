@@ -36,33 +36,26 @@ public class Person extends ClubAbstractEntity
         setTitle("Person Clubber's Data");
 
         JPanel mainGui = new JPanel();
-        mainGui.setLayout(new GridLayout(4,3,5,5));
+        mainGui.setLayout(new GridLayout(4,2,0,0));
         // mainGui.setBorder(new EmptyBorder(5,5,5,5));
         
-        // JPanel textPanel = new JPanel();
-        // textPanel.setLayout(new GridLayout(0,1));
-        mainGui.add(new JLabel("Id:"));
+        JPanel textPanel = new JPanel();
+        textPanel.setLayout(new GridLayout(4,1));       
         mainGui.add(idT);
-        mainGui.add(new JLabel("*"));
-        mainGui.add(new JLabel("Name:"));
         mainGui.add(nameT);
-        mainGui.add(new JLabel("*"));
-        mainGui.add(new JLabel("Surname:"));
-        mainGui.add(surnameT);
-        mainGui.add(new JLabel("*"));
-        mainGui.add(new JLabel("Tel:"));
+        mainGui.add(surnameT);         
         mainGui.add(telT);
-        mainGui.add(new JLabel("*"));
+       
 
-        // mainGui.add(textPanel,BorderLayout.WEST);
+        mainGui.add(textPanel,BorderLayout.WEST);
 
-        // JPanel labelPanel = new JPanel();
-        // labelPanel.setLayout(new GridLayout(0,1));
-
-        
-        
-
-        // mainGui.add(textPanel,BorderLayout.CENTER);
+        JPanel labelPanel = new JPanel();
+        labelPanel.setLayout(new GridLayout(4,1));
+        mainGui.add(new JLabel("Id:"));
+        mainGui.add(new JLabel("Name:"));
+        mainGui.add(new JLabel("Surname:"));
+        mainGui.add(new JLabel("Tel:"));
+        mainGui.add(textPanel,BorderLayout.CENTER);
         // pack();
         setVisible(true);
 
