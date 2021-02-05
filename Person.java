@@ -24,10 +24,38 @@ public class Person extends ClubAbstractEntity
         this.surnameP = surnameP;
         this.telP = telP;
 
+        this.idT= new JTextField();
+        this.nameT= new JTextField();
+        this.surnameT= new JTextField();
+        this.telT= new JTextField();
 
-        JFrame mainFrame = new JFrame();
-        mainFrame.setTitle("Person Clubber's Data");
-        mainFrame.setSize(450,220);
+        JFrame main = new JFrame("Person Clubber's Data");
+        main.setSize(450,220); // fit in 50% screen size
+        main.setLocationRelativeTo(null);
+        nameT = new JTextField(10);
+        idT = new JTextField(10);
+        surnameT = new JTextField(10);
+        telT = new JTextField(10);
+        JPanel gui = new JPanel(new BorderLayout(3,3));
+        gui.setBorder(new EmptyBorder(5,5,5,5));
+        main.setContentPane(gui);
+        JPanel labels = new JPanel(new GridLayout(0,1));
+        JPanel controls = new JPanel(new GridLayout(0,1));
+        gui.add(labels, BorderLayout.WEST);
+        gui.add(controls, BorderLayout.CENTER);
+        labels.add(new JLabel("Id: "));
+        controls.add(idT);
+        labels.add(new JLabel("Name: "));
+        controls.add(nameT);
+        labels.add(new JLabel("Surname: "));
+        controls.add(surnameT);
+        labels.add(new JLabel("Tel: "));
+        controls.add(telT);
+        main.pack();
+        main.setVisible(true);
+        // JFrame mainFrame = new JFrame();
+        // mainFrame.setTitle("Person Clubber's Data");
+        // mainFrame.setSize(450,220);
 
         // init GUI elements
 
