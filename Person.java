@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
@@ -16,6 +17,8 @@ public class Person extends ClubAbstractEntity
     private JTextField surnameT;
     private JTextField telT;
 
+    // private JTextField subText;
+
     //----------constructors---------------
     public Person(String idP, String nameP, String surnameP ,String telP){
         super();
@@ -24,13 +27,12 @@ public class Person extends ClubAbstractEntity
         this.surnameP = surnameP;
         this.telP = telP;
 
-        this.idT= new JTextField("id");
-        this.nameT= new JTextField("name");
-        this.surnameT= new JTextField("surname");
-        this.telT= new JTextField("telT");
+        idT= new JTextField(30);
+        nameT= new JTextField(30);
+        surnameT= new JTextField(30);
+        telT= new JTextField(30);
         
         setSize(450,220);
-<<<<<<< HEAD
         setTitle("Person Clubber's Data");
 
         JPanel mainGui = new JPanel();
@@ -56,15 +58,8 @@ public class Person extends ClubAbstractEntity
         mainGui.add(textPanel,BorderLayout.CENTER);
         // pack();
         setVisible(true);
-=======
-        addToCenter(this.idT);
-        addToCenter(this.nameT);
-        addToCenter(this.surnameT);
-        addToCenter(this.telT);
-        
->>>>>>> parent of ec086f4... GUI fixed
 
-        // init GUI elements
+        addToCenter(mainGui);
         
     }
     
