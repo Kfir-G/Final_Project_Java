@@ -1,6 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.Border;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,9 +40,7 @@ public abstract class ClubAbstractEntity extends JFrame
     //-----------methods----------
     protected void addToCenter(Component guiComponent)
     {
-        
-        mainPanel.add(guiComponent,BorderLayout.CENTER);
-        
+        this.mainPanel.add(guiComponent,BorderLayout.CENTER);
     }
     private class ButtonsHandler implements ActionListener
     {

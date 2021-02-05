@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
@@ -17,8 +16,6 @@ public class Person extends ClubAbstractEntity
     private JTextField surnameT;
     private JTextField telT;
 
-    // private JTextField subText;
-
     //----------constructors---------------
     public Person(String idP, String nameP, String surnameP ,String telP){
         super();
@@ -27,46 +24,19 @@ public class Person extends ClubAbstractEntity
         this.surnameP = surnameP;
         this.telP = telP;
 
-        idT= new JTextField(30);
-        nameT= new JTextField(30);
-        surnameT= new JTextField(30);
-        telT= new JTextField(30);
+        this.idT= new JTextField("id");
+        this.nameT= new JTextField("name");
+        this.surnameT= new JTextField("surname");
+        this.telT= new JTextField("telT");
         
         setSize(450,220);
-        setTitle("Person Clubber's Data");
-
-        JPanel mainGui = new JPanel();
-        mainGui.setLayout(new GridLayout(4,3,5,5));
-        // mainGui.setBorder(new EmptyBorder(5,5,5,5));
-        
-        // JPanel textPanel = new JPanel();
-        // textPanel.setLayout(new GridLayout(0,1));
-        mainGui.add(new JLabel("Id:"));
-        mainGui.add(idT);
-        mainGui.add(new JLabel("*"));
-        mainGui.add(new JLabel("Name:"));
-        mainGui.add(nameT);
-        mainGui.add(new JLabel("*"));
-        mainGui.add(new JLabel("Surname:"));
-        mainGui.add(surnameT);
-        mainGui.add(new JLabel("*"));
-        mainGui.add(new JLabel("Tel:"));
-        mainGui.add(telT);
-        mainGui.add(new JLabel("*"));
-
-        // mainGui.add(textPanel,BorderLayout.WEST);
-
-        // JPanel labelPanel = new JPanel();
-        // labelPanel.setLayout(new GridLayout(0,1));
-
-        
+        addToCenter(this.idT);
+        addToCenter(this.nameT);
+        addToCenter(this.surnameT);
+        addToCenter(this.telT);
         
 
-        // mainGui.add(textPanel,BorderLayout.CENTER);
-        // pack();
-        setVisible(true);
-
-        addToCenter(mainGui);
+        // init GUI elements
         
     }
     
