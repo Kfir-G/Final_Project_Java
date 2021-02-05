@@ -14,29 +14,28 @@ public abstract class ClubAbstractEntity extends JFrame
     //-----------constructors--------
     public ClubAbstractEntity()
     {
-        JFrame frame= new JFrame();
-        frame.setTitle("Club's Data");
-        frame.setLocationRelativeTo(null);
-
+        JPanel subJP = new JPanel();
+        this.mainPanel = new JPanel();
+        this.okButton=new JButton("OK");
+        this.cancelButton=new JButton("CANCEL");
         this.handler=new ButtonsHandler();
-        this.mainPanel=new JPanel();
-        mainPanel.setPreferredSize(new Dimension(450,220));
+
         mainPanel.setLayout(new BorderLayout()); 
 
-        this.okButton=new JButton("OK");
         this.okButton.addActionListener(handler); 
-        this.cancelButton=new JButton("CANCEL");
         this.cancelButton.addActionListener(handler); 
 
-        JPanel subJP = new JPanel();
-        subJP.add(cancelButton);
-        subJP.add(okButton);
-        mainPanel.add(subJP,BorderLayout.SOUTH); 
+        
+        subJP.add(cancelButton); 
+        subJP.add(okButton); 
+        mainPanel.add(subJP,BorderLayout.SOUTH);
 
-        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);   
-        frame.setContentPane(mainPanel); 
-        frame.setVisible(true); 
-        frame.setResizable(false); 
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);   
+        setContentPane(mainPanel); 
+        getContentPane().setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
+        setResizable(false); 
+        setLocationRelativeTo(null);
+        setVisible(true); 
     }  
     //-----------methods----------
     protected void addToCenter(Component guiComponent)
@@ -49,11 +48,11 @@ public abstract class ClubAbstractEntity extends JFrame
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == okButton && validateData()){
                 commit(); 
-                mainPanel.setVisible(false); 
+                mainPanel.setVisible(false); //TO DO 
             }
             if (e.getSource() == cancelButton){
                 rollBack(); 
-                mainPanel.setVisible(false); 
+                mainPanel.setVisible(false); //TO DO 
             }
         } 
     }
