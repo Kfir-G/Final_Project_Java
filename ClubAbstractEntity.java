@@ -37,7 +37,7 @@ public abstract class ClubAbstractEntity extends JFrame
         getContentPane().setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         setResizable(false); 
         setLocationRelativeTo(null);
-        setVisible(true); 
+        setVisible(false); 
     }  
     //-----------methods----------
     protected void addToCenter(Component guiComponent)
@@ -52,11 +52,11 @@ public abstract class ClubAbstractEntity extends JFrame
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == okButton && validateData()){
                 commit(); 
-                mainPanel.setVisible(false); //TO DO 
+                setVisible(false); //TO DO 
             }
             if (e.getSource() == cancelButton){
                 rollBack(); 
-                mainPanel.setVisible(false); //TO DO 
+                setVisible(false); //TO DO 
             }
         } 
     }
