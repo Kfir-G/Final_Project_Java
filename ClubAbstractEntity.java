@@ -27,9 +27,9 @@ public abstract class ClubAbstractEntity extends JFrame
         this.okButton.addActionListener(handler); 
         this.cancelButton.addActionListener(handler); 
 
-        
+
+        subJP.add(okButton);
         subJP.add(cancelButton); 
-        subJP.add(okButton); 
         mainPanel.add(subJP,BorderLayout.SOUTH);
 
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);   
@@ -38,6 +38,7 @@ public abstract class ClubAbstractEntity extends JFrame
         setResizable(false); 
         setLocationRelativeTo(null);
         setVisible(false); 
+        
     }  
     //-----------methods----------
     protected void addToCenter(Component guiComponent)

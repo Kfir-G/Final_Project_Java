@@ -21,9 +21,15 @@ public class Student extends Person
         setSize(450,220);
         setTitle("Student Clubber's Data");
 
-        mainGui.add(new JLabel("Student Id:"));
-        mainGui.add(studentIdT);
-        mainGui.add(asteriskStudentId);
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        mainGui.add(new JLabel("Student ID"),gbc);
+        gbc.gridx = 1;
+        gbc.gridy = 4;
+        mainGui.add(studentIdT,gbc);
+        gbc.gridx = 2;
+        gbc.gridy = 4;
+        mainGui.add(asteriskStudentId,gbc);
         asteriskStudentId.setVisible(false);
         setVisible(true);
     }

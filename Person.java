@@ -1,7 +1,7 @@
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
+
+
 
 public class Person extends ClubAbstractEntity
 {
@@ -24,7 +24,8 @@ public class Person extends ClubAbstractEntity
     private JTextField telT;
 
     protected JPanel mainGui;
-    // private JTextField subText;
+    
+    GridBagConstraints gbc = new GridBagConstraints();
 
     //----------constructors---------------
     public Person(String idP, String nameP, String surnameP ,String telP){
@@ -33,6 +34,8 @@ public class Person extends ClubAbstractEntity
         this.nameP = nameP;
         this.surnameP = surnameP;
         this.telP = telP;
+
+       
 
         idT= new JTextField(30);
         nameT= new JTextField(30);
@@ -44,25 +47,55 @@ public class Person extends ClubAbstractEntity
         this.asteriskSurname = new JLabel("*");
         this.asteriskTel = new JLabel("*");
 
+
         setSize(450,220);
         setTitle("Person Clubber's Data");
 
         this.mainGui = new JPanel();
-        mainGui.setLayout(new GridLayout(5,3,5,5));
+        mainGui.setLayout(new GridBagLayout());
 
+        gbc.insets = new Insets(3,1,3,10);
+        gbc.anchor = GridBagConstraints.EAST;
 
-        mainGui.add(new JLabel("Id:"));
-        mainGui.add(idT);
-        mainGui.add(asteriskId);
-        mainGui.add(new JLabel("Name:"));
-        mainGui.add(nameT);
-        mainGui.add(asteriskName);
-        mainGui.add(new JLabel("Surname:"));
-        mainGui.add(surnameT);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        mainGui.add(new JLabel("ID"),gbc);
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        mainGui.add(idT,gbc);
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        mainGui.add(asteriskId,gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        mainGui.add(new JLabel("Name"),gbc);
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        mainGui.add(nameT,gbc);
+        gbc.gridx = 2;
+        gbc.gridy = 1;
+        mainGui.add(asteriskName,gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        mainGui.add(new JLabel("Surname"),gbc);
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        mainGui.add(surnameT,gbc);
+        gbc.gridx = 2;
+        gbc.gridy = 2;
         mainGui.add(asteriskSurname);
-        mainGui.add(new JLabel("Tel:"));
-        mainGui.add(telT);
-        mainGui.add(asteriskTel);
+
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        mainGui.add(new JLabel("Tel"),gbc);
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        mainGui.add(telT,gbc);
+        gbc.gridx = 2;
+        gbc.gridy = 3;
+        mainGui.add(asteriskTel,gbc);
 
         asteriskId.setForeground(Color.RED);
         asteriskName.setForeground(Color.RED);
@@ -74,8 +107,9 @@ public class Person extends ClubAbstractEntity
         asteriskSurname.setVisible(false);
         asteriskTel.setVisible(false);
 
+    
         setVisible(true);
-
+        
         addToCenter(mainGui);
         
     }

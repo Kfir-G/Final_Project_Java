@@ -20,9 +20,16 @@ public class Soldier extends Person
         personalNumT = new JTextField(30);
         setSize(450,220);
         setTitle("Soldier Clubber's Data");
-        mainGui.add(new JLabel("Personal Number:"));
-        mainGui.add(personalNumT);
-        mainGui.add(asteriskpersonalNum);
+
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        mainGui.add(new JLabel("Personal No."),gbc);
+        gbc.gridx = 1;
+        gbc.gridy = 4;
+        mainGui.add(personalNumT,gbc);
+        gbc.gridx = 2;
+        gbc.gridy = 4;
+        mainGui.add(asteriskpersonalNum,gbc);
         asteriskpersonalNum.setVisible(false);
         setVisible(true);
 
