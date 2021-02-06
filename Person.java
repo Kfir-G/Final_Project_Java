@@ -54,7 +54,7 @@ public class Person extends ClubAbstractEntity
         this.mainGui = new JPanel();
         mainGui.setLayout(new GridBagLayout());
 
-        gbc.insets = new Insets(3,1,3,10);
+        gbc.insets = new Insets(3,0,3,10);
         gbc.anchor = GridBagConstraints.EAST;
 
         gbc.gridx = 0;
@@ -85,7 +85,7 @@ public class Person extends ClubAbstractEntity
         mainGui.add(surnameT,gbc);
         gbc.gridx = 2;
         gbc.gridy = 2;
-        mainGui.add(asteriskSurname);
+        mainGui.add(asteriskSurname,gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 3;
@@ -122,6 +122,11 @@ public class Person extends ClubAbstractEntity
     }
 
     protected boolean validateData(){ //TO DO
+        asteriskId.setVisible(false);
+        asteriskName.setVisible(false);
+        asteriskSurname.setVisible(false);
+        asteriskTel.setVisible(false);
+
         String id = idT.getText();
         String name = nameT.getText();
         String tel = telT.getText();
@@ -129,8 +134,8 @@ public class Person extends ClubAbstractEntity
         
         boolean validIdCheck = id.matches("([0-9]-\\d{7}\\|[1-9])");
         boolean validNameCheck = name.matches("[A-Z][a-z]*");
-        boolean validTelCheck = surname.matches("[A-Z][a-z]*(['-][a-zA-Z]+)*");
-        boolean validSureNameCheck = tel.matches("\\+\\([1-9]\\d{0,2}\\)[1-9]\\d{0,2}-[1-9]\\d{6}");
+        boolean validSureNameCheck = surname.matches("[A-Z][a-z]*(['-][a-zA-Z]+)*");
+        boolean validTelCheck = tel.matches("\\+\\([1-9]\\d{0,2}\\)[1-9]\\d{0,2}-[1-9]\\d{6}");
         
         if (!validIdCheck) {
             asteriskId.setVisible(true);

@@ -17,6 +17,8 @@ public class Student extends Person
 
         studentIdT = new JTextField(30);
         this.asteriskStudentId = new JLabel("*");
+        asteriskStudentId.setForeground(Color.RED);
+
 
         setSize(450,220);
         setTitle("Student Clubber's Data");
@@ -39,10 +41,11 @@ public class Student extends Person
         return (super.match(key) || key.substring(5).equals(this.studentIdP)) ? true : false ;
     }
     protected boolean validateData(){
+        asteriskStudentId.setVisible(false);
         String studentId = studentIdT.getText();
 
         boolean superCheck =  super.validateData();
-        boolean studentIdCheck = studentId.matches("[A-Z]{3}[/][1-9][0-9]{4}");
+        boolean studentIdCheck = studentId.matches("[A-Z]{3}[/][0-9]*");
 
         if(!studentIdCheck && superCheck){
             asteriskStudentId.setVisible(true);

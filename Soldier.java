@@ -5,9 +5,9 @@ import javax.swing.*;
 public class Soldier extends Person
 {
     //-----------data fields-----------
-    String personalNumP;
+    private String personalNumP;
 
-    private JLabel asteriskpersonalNum;
+    private JLabel asteriskPersonalNum;
 
     private JTextField personalNumT;
     //-----------constructors----------
@@ -15,25 +15,24 @@ public class Soldier extends Person
         super(idP,nameP,surnameP,telP);
         this.personalNumP = personalNumP;
 
-        this.asteriskpersonalNum = new JLabel("*");
-
         personalNumT = new JTextField(30);
+        this.asteriskPersonalNum = new JLabel("*");
+        asteriskPersonalNum.setForeground(Color.RED);
+
         setSize(450,220);
         setTitle("Soldier Clubber's Data");
 
         gbc.gridx = 0;
         gbc.gridy = 4;
-        mainGui.add(new JLabel("Personal No."),gbc);
+        mainGui.add(new JLabel("Soldier No"),gbc);
         gbc.gridx = 1;
         gbc.gridy = 4;
         mainGui.add(personalNumT,gbc);
         gbc.gridx = 2;
         gbc.gridy = 4;
-        mainGui.add(asteriskpersonalNum,gbc);
-        asteriskpersonalNum.setVisible(false);
+        mainGui.add(asteriskPersonalNum,gbc);
+        asteriskPersonalNum.setVisible(false);
         setVisible(true);
-
-
     }
     //------------methods--------------
     public boolean match(String key)
@@ -41,14 +40,19 @@ public class Soldier extends Person
         return (super.match(key) || key.equals(this.personalNumP)) ? true : false; 
     }
     protected boolean validateData(){
+        
+        asteriskPersonalNum.setVisible(false);
         String personalNum = personalNumT.getText();
 
        boolean superCheck =  super.validateData();
        boolean personalNumCheck = personalNum.matches("[R]|[O]|[C][/][1-9][0-9]{6}");//TO DO
-       if(!personalNumCheck && superCheck) {
-        asteriskpersonalNum.setVisible(true);
+       //super - true need to check personalNumCheck
+       //super - false 
+       if(superCheck && !personalNumCheck) {
+            asteriskPersonalNum.setVisible(true);
+           }     
+       
 
-       }
         return (superCheck && personalNumCheck);
     }
     protected void commit(){
