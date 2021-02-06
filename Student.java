@@ -5,7 +5,9 @@ import javax.swing.*;
 public class Student extends Person
 {
     //-----------data fields--------------
-    String studentIdP;
+    private String studentIdP;
+
+    private JLabel asteriskStudentId;
 
     private JTextField studentIdT;
     //-----------constructors-------------
@@ -14,13 +16,15 @@ public class Student extends Person
         this.studentIdP = studentIdP;
 
         studentIdT = new JTextField(30);
+        this.asteriskStudentId = new JLabel("*");
 
         setSize(450,220);
         setTitle("Student Clubber's Data");
 
         mainGui.add(new JLabel("Student Id:"));
         mainGui.add(studentIdT);
-        mainGui.add(new JLabel("*"));
+        mainGui.add(asteriskStudentId);
+        asteriskStudentId.setVisible(false);
         setVisible(true);
     }
     //------------methods-----------------
@@ -33,6 +37,11 @@ public class Student extends Person
 
         boolean superCheck =  super.validateData();
         boolean studentIdCheck = studentId.matches("[A-Z]{3}[/][1-9][0-9]{4}");
+
+        if(!studentIdCheck && superCheck){
+            asteriskStudentId.setVisible(true);
+        }
+
         return (superCheck && studentIdCheck);
     }
 

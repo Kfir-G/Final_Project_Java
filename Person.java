@@ -12,6 +12,12 @@ public class Person extends ClubAbstractEntity
     private String surnameP; //last name
     private String telP;     //telephone
 
+    private JLabel asteriskId;
+    private JLabel asteriskName;
+    private JLabel asteriskSurname;
+    private JLabel asteriskTel;
+
+
     private JTextField idT;
     private JTextField nameT;
     private JTextField surnameT;
@@ -33,38 +39,41 @@ public class Person extends ClubAbstractEntity
         surnameT= new JTextField(30);
         telT= new JTextField(30);
         
+        this.asteriskId = new JLabel("*");
+        this.asteriskName = new JLabel("*");
+        this.asteriskSurname = new JLabel("*");
+        this.asteriskTel = new JLabel("*");
+
         setSize(450,220);
         setTitle("Person Clubber's Data");
 
         this.mainGui = new JPanel();
         mainGui.setLayout(new GridLayout(5,3,5,5));
-        // mainGui.setBorder(new EmptyBorder(5,5,5,5));
-        
-        // JPanel textPanel = new JPanel();
-        // textPanel.setLayout(new GridLayout(0,1));
+
+
         mainGui.add(new JLabel("Id:"));
         mainGui.add(idT);
-        mainGui.add(new JLabel("*"));
+        mainGui.add(asteriskId);
         mainGui.add(new JLabel("Name:"));
         mainGui.add(nameT);
-        mainGui.add(new JLabel("*"));
+        mainGui.add(asteriskName);
         mainGui.add(new JLabel("Surname:"));
         mainGui.add(surnameT);
-        mainGui.add(new JLabel("*"));
+        mainGui.add(asteriskSurname);
         mainGui.add(new JLabel("Tel:"));
         mainGui.add(telT);
-        mainGui.add(new JLabel("*"));
+        mainGui.add(asteriskTel);
 
-        // mainGui.add(textPanel,BorderLayout.WEST);
+        asteriskId.setForeground(Color.RED);
+        asteriskName.setForeground(Color.RED);
+        asteriskSurname.setForeground(Color.RED);
+        asteriskTel.setForeground(Color.RED);
 
-        // JPanel labelPanel = new JPanel();
-        // labelPanel.setLayout(new GridLayout(0,1));
+        asteriskId.setVisible(false);
+        asteriskName.setVisible(false);
+        asteriskSurname.setVisible(false);
+        asteriskTel.setVisible(false);
 
-        
-        
-
-        // mainGui.add(textPanel,BorderLayout.CENTER);
-        // pack();
         setVisible(true);
 
         addToCenter(mainGui);
@@ -83,13 +92,28 @@ public class Person extends ClubAbstractEntity
         String name = nameT.getText();
         String tel = telT.getText();
         String surname = surnameT.getText();
-
+        
         boolean validIdCheck = id.matches("([0-9]-\\d{7}\\|[1-9])");
         boolean validNameCheck = name.matches("[A-Z][a-z]*");
         boolean validTelCheck = surname.matches("[A-Z][a-z]*(['-][a-zA-Z]+)*");
         boolean validSureNameCheck = tel.matches("\\+\\([1-9]\\d{0,2}\\)[1-9]\\d{0,2}-[1-9]\\d{6}");
-
         
+        if (!validIdCheck) {
+            asteriskId.setVisible(true);
+
+        } 
+        else if (!validNameCheck) {
+            asteriskName.setVisible(true);
+
+        } 
+        else if (!validSureNameCheck) {
+            asteriskSurname.setVisible(true);
+
+        } 
+        else if (!validTelCheck) {
+            asteriskTel.setVisible(true);
+
+        } 
 
         return(validIdCheck && validNameCheck && validTelCheck && validSureNameCheck);
     }

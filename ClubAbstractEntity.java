@@ -57,6 +57,7 @@ public abstract class ClubAbstractEntity extends JFrame
             if (e.getSource() == cancelButton){
                 rollBack(); 
                 setVisible(false); //TO DO 
+                
             }
         } 
     }

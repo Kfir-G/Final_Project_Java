@@ -7,18 +7,23 @@ public class Soldier extends Person
     //-----------data fields-----------
     String personalNumP;
 
+    private JLabel asteriskpersonalNum;
+
     private JTextField personalNumT;
     //-----------constructors----------
     public Soldier(String idP, String nameP, String surnameP ,String telP,String personalNumP){
         super(idP,nameP,surnameP,telP);
         this.personalNumP = personalNumP;
 
+        this.asteriskpersonalNum = new JLabel("*");
+
         personalNumT = new JTextField(30);
         setSize(450,220);
         setTitle("Soldier Clubber's Data");
         mainGui.add(new JLabel("Personal Number:"));
         mainGui.add(personalNumT);
-        mainGui.add(new JLabel("*"));
+        mainGui.add(asteriskpersonalNum);
+        asteriskpersonalNum.setVisible(false);
         setVisible(true);
 
 
@@ -33,6 +38,10 @@ public class Soldier extends Person
 
        boolean superCheck =  super.validateData();
        boolean personalNumCheck = personalNum.matches("[R]|[O]|[C][/][1-9][0-9]{6}");//TO DO
+       if(!personalNumCheck && superCheck) {
+        asteriskpersonalNum.setVisible(true);
+
+       }
         return (superCheck && personalNumCheck);
     }
     protected void commit(){
