@@ -17,6 +17,7 @@ public class Person extends ClubAbstractEntity
     private JTextField surnameT;
     private JTextField telT;
 
+    protected JPanel mainGui;
     // private JTextField subText;
 
     //----------constructors---------------
@@ -35,8 +36,8 @@ public class Person extends ClubAbstractEntity
         setSize(450,220);
         setTitle("Person Clubber's Data");
 
-        JPanel mainGui = new JPanel();
-        mainGui.setLayout(new GridLayout(4,3,5,5));
+        this.mainGui = new JPanel();
+        mainGui.setLayout(new GridLayout(5,3,5,5));
         // mainGui.setBorder(new EmptyBorder(5,5,5,5));
         
         // JPanel textPanel = new JPanel();
@@ -77,7 +78,7 @@ public class Person extends ClubAbstractEntity
 
     }
 
-    protected boolean validateData(){
+    protected boolean validateData(){ //TO DO
         String id = idT.getText();
         String name = nameT.getText();
         String tel = telT.getText();
@@ -87,6 +88,8 @@ public class Person extends ClubAbstractEntity
         boolean validNameCheck = name.matches("[A-Z][a-z]*");
         boolean validTelCheck = surname.matches("[A-Z][a-z]*(['-][a-zA-Z]+)*");
         boolean validSureNameCheck = tel.matches("\\+\\([1-9]\\d{0,2}\\)[1-9]\\d{0,2}-[1-9]\\d{6}");
+
+        
 
         return(validIdCheck && validNameCheck && validTelCheck && validSureNameCheck);
     }
