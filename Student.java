@@ -33,9 +33,10 @@ public class Student extends Person
         gbc.gridy = 4;
         mainGui.add(asteriskStudentId,gbc);
         asteriskStudentId.setVisible(false);
-        setVisible(true);
+        setVisible(false);
     }
     //------------methods-----------------
+    @Override
     public boolean match(String key)
     {
         return (super.match(key) || key.substring(5).equals(this.studentIdP)) ? true : false ;
@@ -53,13 +54,20 @@ public class Student extends Person
 
         return (superCheck && studentIdCheck);
     }
-
+    @Override
     protected void commit(){
         super.commit();
         this.studentIdP = studentIdT.getText();
     }
+    @Override
     protected void rollBack(){
         super.rollBack();
         this.studentIdT.setText(studentIdP);
     }
+    @Override
+    protected void showDetails(){
+        super.showDetails();
+        this.studentIdT.setText(studentIdP);
+    }
+
 }

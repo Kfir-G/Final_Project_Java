@@ -67,4 +67,5 @@ public abstract class ClubAbstractEntity extends JFrame
     protected abstract boolean validateData();
     protected abstract void commit();
     protected abstract void rollBack();
+    protected abstract void showDetails();
 }

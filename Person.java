@@ -107,9 +107,8 @@ public class Person extends ClubAbstractEntity
         asteriskSurname.setVisible(false);
         asteriskTel.setVisible(false);
 
-    
-        setVisible(true);
         
+        setVisible(false);
         addToCenter(mainGui);
         
     }
@@ -121,7 +120,7 @@ public class Person extends ClubAbstractEntity
 
     }
 
-    protected boolean validateData(){ //TO DO
+    protected boolean validateData(){ 
         asteriskId.setVisible(false);
         asteriskName.setVisible(false);
         asteriskSurname.setVisible(false);
@@ -156,21 +155,32 @@ public class Person extends ClubAbstractEntity
 
         return(validIdCheck && validNameCheck && validTelCheck && validSureNameCheck);
     }
-    protected void commit(){
+    protected void commit(){ 
         this.idP = idT.getText();
         this.nameP = nameT.getText();
         this.surnameP = surnameT.getText();
         this.telP = telT.getText();
+
     }
 
 
     protected void rollBack(){
+        asteriskId.setVisible(false);
+        asteriskName.setVisible(false);
+        asteriskSurname.setVisible(false);
+        asteriskTel.setVisible(false);
+
         this.idT.setText(idP);
         this.nameT.setText(nameP);
         this.surnameT.setText(surnameP);
         this.telT.setText(telP);
     }
-
+    protected void showDetails(){
+        this.idT.setText(idP);
+        this.nameT.setText(nameP);
+        this.surnameT.setText(surnameP);
+        this.telT.setText(telP);
+    }
     
 }
 
