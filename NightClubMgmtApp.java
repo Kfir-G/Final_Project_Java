@@ -7,33 +7,49 @@ import java.awt.event.ActionListener;
 
 public class NightClubMgmtApp extends JFrame
 
-{
-    private ArrayList<ClubAbstractEntity> clubbers;
-    private Scanner sc;
+{   
+     //-----------data fields---------------
 
+    private ArrayList<ClubAbstractEntity> clubbers;
+    private JComboBox<String> comboBox;
     private JButton sreachButton;
     private JButton createButton;
     private ButtonsHandler btnHandler;
-    private JTextField inputField;
+    GridBagConstraints gbc = new GridBagConstraints();
+
 
     public NightClubMgmtApp()
-    {
+    {      
+        String[] entityStrings = { "Person", "Soldier", "Studnet" };
+
+        this.comboBox = new JComboBox<String>(entityStrings);
         this.btnHandler=new ButtonsHandler();
         this.sreachButton=new JButton("Sreach");
         this.createButton=new JButton("Create");
         this.createButton.addActionListener(btnHandler); 
         this.sreachButton.addActionListener(btnHandler); 
-        this.inputField = new JTextField(20);
+        // this.inputField = new JTextField(20);
         clubbers = new ArrayList<>();
+        
 
         JPanel startGui = new JPanel();
-        JPanel subJPanel = new JPanel();
+        JPanel subPanel = new JPanel();
+        subPanel.setLayout(new GridBagLayout());
+        gbc.insets = new Insets(3,0,3,10);
 
-        subJPanel.add(sreachButton);
-        subJPanel.add(createButton);
-        subJPanel.add(inputField);
 
-        startGui.add(subJPanel,BorderLayout.CENTER);
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        subPanel.add(sreachButton,gbc);
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        subPanel.add(createButton,gbc);
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        subPanel.add(comboBox,gbc);
+
+
+        startGui.add(subPanel,BorderLayout.NORTH);
 
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);   
         setContentPane(startGui); 
@@ -44,34 +60,34 @@ public class NightClubMgmtApp extends JFrame
         setVisible(true);
 
         loadClubbersDBFromFile();
-        
-
-
-        // File: NightClubMgmtApp.java
-        // sc = new Scanner(System.in);
     }
-    private void manipulateDB()
-    {
-        String input; 
-       
-            input = inputField.getText();
-            if(input.trim().equalsIgnoreCase("exit"))
-            {writeClubbersDBtoFile(); System.exit(0);}
-            for(ClubAbstractEntity clubber : clubbers)
-                if(clubber.match(input))
-                {
-                   
-                    clubber.showDetails();
-                    clubber.setVisible(true);
-                    break;
-                }
-            else {
-            //MessageDialog
-                System.out.printf("Clubber with key %s does not exist%n", input);
+    private void manipulateDB(){
+            
+            String input = JOptionPane.showInputDialog(this,"Please Enter The Clubber's Key"); 
+            boolean found = false;
+
+            // if(input.trim().equalsIgnoreCase("exit")){
+            //     writeClubbersDBtoFile();
+            // }
+
+            if(input != null){
+                for(ClubAbstractEntity clubber : clubbers){
                 
+                    if(clubber.match(input)){
+                        found = true;
+                        clubber.showDetails();
+                        clubber.setVisible(true);
+                        break;
+                    }
+                }
+    
+                if(!found){
+                //MessageDialog
+                JOptionPane.showMessageDialog(this,"Clubber with key "+input+" does not exist","Warning",JOptionPane.INFORMATION_MESSAGE);
+                }
             }
-        
-    }// End of method manipulateDB
+
+    }
     private void loadClubbersDBFromFile()
     {
         //Read data from file, create the corresponding objects and put them
@@ -86,6 +102,23 @@ public class NightClubMgmtApp extends JFrame
         //Write all the objects’ data in clubbers ArrayList into the file
     }
 
+    private void createEntity(){
+        String create =  comboBox.getSelectedItem()+"";
+
+
+        switch (create) {
+            case "Person":
+                System.out.println("Person");
+            break;
+            case "Soldier":
+                System.out.println("Soldier");
+            break;
+            case "Studnet":
+                 System.out.println("Studnet");
+            break;
+        
+        }
+    }
     private class ButtonsHandler implements ActionListener
     {
         @Override
@@ -95,7 +128,7 @@ public class NightClubMgmtApp extends JFrame
                 
             }
             if (e.getSource() == createButton){
-                
+                createEntity();
                 
                 
             }
@@ -107,4 +140,4 @@ public class NightClubMgmtApp extends JFrame
     {
         NightClubMgmtApp appliction = new NightClubMgmtApp();
     }
-}//End of class NightClubMgmtApp
+}
