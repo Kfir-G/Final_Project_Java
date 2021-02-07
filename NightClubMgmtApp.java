@@ -129,7 +129,7 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
             fos = new FileOutputStream("BKCustomers.dat");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(clubbers);
-            oos.close();
+            oos.close();//error
             fos.close();
         }
             catch (IOException e){
@@ -174,6 +174,8 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
         } 
     }
 
+
+    
 
     public static void main(String[] args)
     {
