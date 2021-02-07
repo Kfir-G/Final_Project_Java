@@ -106,16 +106,11 @@ public class Person extends ClubAbstractEntity
     }
     protected boolean validateData(){ 
         hideAllAsterisks();
-
-        String id = idT.getText();
-        String name = nameT.getText();
-        String tel = telT.getText();
-        String surname = surnameT.getText();
-        
-        boolean validIdCheck = id.matches("([0-9]-\\d{7}\\|[1-9])");
-        boolean validNameCheck = name.matches("[A-Z][a-z]*");
-        boolean validSureNameCheck = surname.matches("[A-Z][a-z]*(['-][a-zA-Z]+)*");
-        boolean validTelCheck = tel.matches("\\+\\([1-9]\\d{0,2}\\)[1-9]\\d{0,2}-[1-9]\\d{6}");
+           
+        boolean validIdCheck = idT.getText().matches("([0-9]-\\d{7}\\|[1-9])");
+        boolean validNameCheck = nameT.getText().matches("[A-Z][a-z]*");
+        boolean validSureNameCheck = telT.getText().matches("[A-Z][a-z]*(['-][a-zA-Z]+)*");
+        boolean validTelCheck = surnameT.getText().matches("\\+\\([1-9]\\d{0,2}\\)[1-9]\\d{0,2}-[1-9]\\d{6}");
         
         if (!validIdCheck) {
             asteriskId.setVisible(true);
