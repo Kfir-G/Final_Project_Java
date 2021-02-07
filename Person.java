@@ -109,7 +109,7 @@ public class Person extends ClubAbstractEntity
     /** 
      * match method is equals the ID
      * @param inputId String type is the user input
-     * @return boolean return true if it's equal and return false else
+     * @return boolean return true if it's equal and return false else to the ID
      */
     //----------methods-------------------
     public boolean match(String inputId){

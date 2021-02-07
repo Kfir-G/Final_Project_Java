@@ -1,7 +1,11 @@
 import java.awt.*;
 import java.util.*;
 import javax.swing.*;
-
+/**
+ * Student class extends Person class 
+ * Student has an adition field which is student ID
+ * {@link Person}, {@link ClubAbstractEntity}
+ */
 public class Student extends Person
 {
     //-----------data fields--------------
@@ -22,6 +26,7 @@ public class Student extends Person
         setSize(450,220);
         setTitle("Student Clubber's Data");
 
+        //sets grid corrdinate each grid
         gbc.gridx = 0;
         gbc.gridy = 4;
         mainGui.add(new JLabel("Student ID"),gbc);
@@ -31,15 +36,26 @@ public class Student extends Person
         gbc.gridx = 2;
         gbc.gridy = 4;
         mainGui.add(asteriskStudentId,gbc);
+
         asteriskStudentId.setVisible(false);
         setVisible(false);
     }
+    /** 
+     * match method is equals the ID
+     * {@link Person#match}
+     * @param key String type is the user input
+     * @return boolean return true if it's equal and return false else to the ID or student ID
+     */
     //------------methods-----------------
     @Override
     public boolean match(String key)
     {
         return (super.match(key) || key.substring(5).equals(this.studentIdP)) ? true : false ;
     }
+    /** validateData method check if the user input is valid
+     * {@link Person#validateData}
+     * @return boolean return true if the input is valid and false else
+     */
     @Override
     protected boolean validateData(){
         asteriskStudentId.setVisible(false);
@@ -53,16 +69,28 @@ public class Student extends Person
 
         return (superCheck && studentIdCheck);
     }
+    /**
+     * commit method insert the user input to the class class data fields
+     * {@link Person#commit}
+     */
     @Override
     protected void commit(){
         super.commit();
         this.studentIdP = studentIdT.getText();
     }
+    /**
+     * rollBack method set the texts that was before and hide all the Asterisks
+     * {@link Person#rollBack}
+     */
     @Override
     protected void rollBack(){
         super.rollBack();
         this.studentIdT.setText(studentIdP);
     }
+    /**
+     * showDetails method show the details of the entity
+     * {@link Person#showDetails}
+     */
     @Override
     protected void showDetails(){
         super.showDetails();
