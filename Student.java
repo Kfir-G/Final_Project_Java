@@ -40,19 +40,20 @@ public class Student extends Person
         asteriskStudentId.setVisible(false);
         setVisible(false);
     }
+    //------------methods-----------------
     /** 
-     * match method is equals the ID
+     * match method is equals the ID or student ID
      * {@link Person#match}
      * @param key String type is the user input
      * @return boolean return true if it's equal and return false else to the ID or student ID
      */
-    //------------methods-----------------
     @Override
     public boolean match(String key)
     {
         return (super.match(key) || key.substring(5).equals(this.studentIdP)) ? true : false ;
     }
-    /** validateData method check if the user input is valid
+    /** 
+     * validateData method check if the user input is valid
      * {@link Person#validateData}
      * @return boolean return true if the input is valid and false else
      */

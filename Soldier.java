@@ -1,7 +1,11 @@
 import java.awt.*;
 import java.util.*;
 import javax.swing.*;
-
+/**
+ * Soldier class extends Person class 
+ * Soldier has an adition field which is student ID
+ * {@link Person}, {@link ClubAbstractEntity}
+ */
 public class Soldier extends Person
 {
     //-----------data fields-----------
@@ -22,6 +26,7 @@ public class Soldier extends Person
         setSize(450,220);
         setTitle("Soldier Clubber's Data");
 
+        //sets grid corrdinate each grid
         gbc.gridx = 0;
         gbc.gridy = 4;
         mainGui.add(new JLabel("Soldier No"),gbc);
@@ -37,11 +42,22 @@ public class Soldier extends Person
         setVisible(false);
     }
     //------------methods--------------
+    /** 
+     * match method is equals the ID or pernoal number
+     * {@link Person#match}
+     * @param key String type is the user input
+     * @return boolean return true if it's equal and return false else to the ID or Soldier ID
+     */
     @Override
     public boolean match(String key)
     {
         return (super.match(key) || key.equals(this.personalNumP)) ? true : false; 
-    }
+    }   
+    /** 
+     * validateData method check if the user input is valid
+     * {@link Person#validateData}
+     * @return boolean return true if the input is valid and false else
+     */
     @Override
     protected boolean validateData(){
         asteriskPersonalNum.setVisible(false);
@@ -56,16 +72,28 @@ public class Soldier extends Person
        
         return (superCheck && personalNumCheck);
     }
+    /**
+     * commit method insert the user input to the class class data fields
+     * {@link Person#commit}
+     */
     @Override
     protected void commit(){
         super.commit();
         this.personalNumP = personalNumT.getText();
     }
+    /**
+     * rollBack method set the texts that was before and hide all the Asterisks
+     * {@link Person#rollBack}
+     */
     @Override
     protected void rollBack(){
         super.rollBack();
         this.personalNumT.setText(personalNumP);
     }
+    /**
+     * showDetails method show the details of the entity
+     * {@link Person#showDetails}
+     */
     @Override
     protected void showDetails(){
         super.showDetails();

@@ -106,12 +106,12 @@ public class Person extends ClubAbstractEntity
         setVisible(false);
         addToCenter(mainGui);
     } 
+    //----------methods-------------------
     /** 
      * match method is equals the ID
      * @param inputId String type is the user input
      * @return boolean return true if it's equal and return false else to the ID
      */
-    //----------methods-------------------
     public boolean match(String inputId){
         return inputId.equals(this.idP) ? true: false;
     }
