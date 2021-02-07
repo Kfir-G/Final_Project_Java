@@ -14,7 +14,7 @@ public abstract class ClubAbstractEntity extends JFrame implements Serializable
     protected JPanel mainPanel;
     protected JButton okButton;
     protected JButton cancelButton;
-    //private ButtonsHandler handler; 
+    private ButtonsHandler handler; 
 
     //-----------constructors--------
     /**
@@ -26,7 +26,6 @@ public abstract class ClubAbstractEntity extends JFrame implements Serializable
         this.mainPanel = new JPanel();
         this.okButton=new JButton("OK");
         this.cancelButton=new JButton("CANCEL");
-        ButtonsHandler handler=new ButtonsHandler();
         handler=new ButtonsHandler();
         mainPanel.setLayout(new BorderLayout()); 
 
@@ -63,7 +62,7 @@ public abstract class ClubAbstractEntity extends JFrame implements Serializable
     /**
      * ButtonsHandler which listen to buttons
      */
-    private class ButtonsHandler implements ActionListener
+    private class ButtonsHandler implements ActionListener ,Serializable
     {
         /**
          * actionPerformed listen to OK and Cancel buttons
