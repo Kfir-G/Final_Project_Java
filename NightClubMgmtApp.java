@@ -117,7 +117,7 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
      
         //Read data from file, create the corresponding objects and put them
         //into clubbers ArrayList. For example:
-        clubbers.add(new Person("0-2423535|1", "Mark", "Mc'Cormic","+(1)4-9520205"));
+        clubbers.add(new Person("0-2423535|3", "Mark", "Mc'Cormic","+(1)4-9520205"));
         clubbers.add(new Soldier("0-2223335|1", "Zohar", "Couper-Berg","+(44)206-8208167", "O/4684109"));
         clubbers.add(new Student("2-5554445|3", "Avi", "Avrahami-O'Mally","+(972)50-6663210", "SCE/12345"));
     }
@@ -156,6 +156,7 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
             clubbers.add((new Student("", "", "", "", "")));
             break;
         }
+        clubbers.get(clubbers.size()-1).setEnabledCancel(false);
         clubbers.get(clubbers.size()-1).setVisible(true);
 
     }
