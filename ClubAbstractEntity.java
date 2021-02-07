@@ -18,7 +18,7 @@ public abstract class ClubAbstractEntity extends JFrame implements Serializable
 
     //-----------constructors--------
     /**
-     * 
+     * ClubAbstractEntity constructor
      */
     public ClubAbstractEntity()
     {
@@ -44,28 +44,31 @@ public abstract class ClubAbstractEntity extends JFrame implements Serializable
         setLocationRelativeTo(null);
         setVisible(false);    
     }  
-    
     /** 
-     * @param bool
+     * setEnabledCancel method set the cencel button to enabled to true or false
+     * @param bool boolean which set the cencel button to enabled to true or false
      */
     //-----------methods----------
     protected void setEnabledCancel(boolean bool){
         cancelButton.setEnabled(bool);
     }
-
-    
     /** 
-     * @param guiComponent
+     * addToCenter method center the gui compinent
+     * @param guiComponent Component which is centering the gui compinent
      */
     protected void addToCenter(Component guiComponent)
     {       
         mainPanel.add(guiComponent,BorderLayout.CENTER);     
     }
     /**
-     * 
+     * ButtonsHandler which listen to buttons
      */
     private class ButtonsHandler implements ActionListener
     {
+        /**
+         * actionPerformed listen to OK and Cancel buttons
+         * @param e ActionEvent of the button
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == okButton && validateData()){
