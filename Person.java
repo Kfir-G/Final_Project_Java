@@ -133,30 +133,27 @@ public class Person extends ClubAbstractEntity
         return(validIdCheck && validNameCheck && validTelCheck && validSureNameCheck);
     }
     protected void commit(){ 
-        this.idP = idT.getText();
-        this.nameP = nameT.getText();
-        this.surnameP = surnameT.getText();
-        this.telP = telT.getText();
+        setTexts();
     }
     protected void rollBack(){
         hideAllAsterisks();
 
-        this.idT.setText(idP);
-        this.nameT.setText(nameP);
-        this.surnameT.setText(surnameP);
-        this.telT.setText(telP);
+        setTexts();
     }
     protected void showDetails(){
-        this.idT.setText(idP);
-        this.nameT.setText(nameP);
-        this.surnameT.setText(surnameP);
-        this.telT.setText(telP);
+        setTexts();
     }
     protected void hideAllAsterisks(){
         asteriskId.setVisible(false);
         asteriskName.setVisible(false);
         asteriskSurname.setVisible(false);
         asteriskTel.setVisible(false);
+    }
+    protected void setTexts(){
+        this.idT.setText(idP);
+        this.nameT.setText(nameP);
+        this.surnameT.setText(surnameP);
+        this.telT.setText(telP);
     }
 }
 
