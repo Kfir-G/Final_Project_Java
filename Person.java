@@ -102,10 +102,7 @@ public class Person extends ClubAbstractEntity
         asteriskSurname.setForeground(Color.RED);
         asteriskTel.setForeground(Color.RED);
 
-        asteriskId.setVisible(false);
-        asteriskName.setVisible(false);
-        asteriskSurname.setVisible(false);
-        asteriskTel.setVisible(false);
+        hideAllAsterisks();
 
         
         setVisible(false);
@@ -121,10 +118,7 @@ public class Person extends ClubAbstractEntity
     }
 
     protected boolean validateData(){ 
-        asteriskId.setVisible(false);
-        asteriskName.setVisible(false);
-        asteriskSurname.setVisible(false);
-        asteriskTel.setVisible(false);
+        hideAllAsterisks();
 
         String id = idT.getText();
         String name = nameT.getText();
@@ -165,10 +159,7 @@ public class Person extends ClubAbstractEntity
 
 
     protected void rollBack(){
-        asteriskId.setVisible(false);
-        asteriskName.setVisible(false);
-        asteriskSurname.setVisible(false);
-        asteriskTel.setVisible(false);
+        hideAllAsterisks();
 
         this.idT.setText(idP);
         this.nameT.setText(nameP);
@@ -180,6 +171,12 @@ public class Person extends ClubAbstractEntity
         this.nameT.setText(nameP);
         this.surnameT.setText(surnameP);
         this.telT.setText(telP);
+    }
+    protected void hideAllAsterisks(){
+        asteriskId.setVisible(false);
+        asteriskName.setVisible(false);
+        asteriskSurname.setVisible(false);
+        asteriskTel.setVisible(false);
     }
     
 }
