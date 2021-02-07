@@ -19,7 +19,6 @@ public class Student extends Person
         this.asteriskStudentId = new JLabel("*");
         asteriskStudentId.setForeground(Color.RED);
 
-
         setSize(450,220);
         setTitle("Student Clubber's Data");
 
@@ -69,5 +68,4 @@ public class Student extends Person
         super.showDetails();
         this.studentIdT.setText(studentIdP);
     }
-
 }

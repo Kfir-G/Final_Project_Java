@@ -45,15 +45,14 @@ public class Soldier extends Person
         asteriskPersonalNum.setVisible(false);
         String personalNum = personalNumT.getText();
 
-       boolean superCheck =  super.validateData();
-       boolean personalNumCheck = personalNum.matches("[ROC][/][1-9][0-9]{6}");//TO DO
-       //super - true need to check personalNumCheck
-       //super - false 
-       if(superCheck && !personalNumCheck) {
+        boolean superCheck =  super.validateData();
+        boolean personalNumCheck = personalNum.matches("[ROC][/][1-9][0-9]{6}");//TO DO
+        //super - true need to check personalNumCheck
+        //super - false 
+        if(superCheck && !personalNumCheck) {
             asteriskPersonalNum.setVisible(true);
-           }     
+        }     
        
-
         return (superCheck && personalNumCheck);
     }
     @Override

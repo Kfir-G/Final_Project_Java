@@ -27,7 +27,6 @@ public abstract class ClubAbstractEntity extends JFrame
         this.okButton.addActionListener(handler); 
         this.cancelButton.addActionListener(handler); 
 
-
         subJP.add(okButton);
         subJP.add(cancelButton); 
         mainPanel.add(subJP,BorderLayout.SOUTH);
@@ -37,15 +36,12 @@ public abstract class ClubAbstractEntity extends JFrame
         getContentPane().setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         setResizable(false); 
         setLocationRelativeTo(null);
-        setVisible(false); 
-        
+        setVisible(false);    
     }  
     //-----------methods----------
     protected void addToCenter(Component guiComponent)
-    {
-        
-        mainPanel.add(guiComponent,BorderLayout.CENTER);
-        
+    {       
+        mainPanel.add(guiComponent,BorderLayout.CENTER);     
     }
     private class ButtonsHandler implements ActionListener
     {
@@ -57,8 +53,7 @@ public abstract class ClubAbstractEntity extends JFrame
             }
             if (e.getSource() == cancelButton){
                 rollBack(); 
-                setVisible(false); //TO DO 
-                
+                setVisible(false); //TO DO                
             }
         } 
     }

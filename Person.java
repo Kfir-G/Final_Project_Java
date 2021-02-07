@@ -1,11 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 
-
-
 public class Person extends ClubAbstractEntity
 {
-    
     //-----------data fields---------------
     private String idP;
     private String nameP;    //first name
@@ -16,7 +13,6 @@ public class Person extends ClubAbstractEntity
     private JLabel asteriskName;
     private JLabel asteriskSurname;
     private JLabel asteriskTel;
-
 
     private JTextField idT;
     private JTextField nameT;
@@ -35,8 +31,6 @@ public class Person extends ClubAbstractEntity
         this.surnameP = surnameP;
         this.telP = telP;
 
-       
-
         idT= new JTextField(30);
         nameT= new JTextField(30);
         surnameT= new JTextField(30);
@@ -46,7 +40,6 @@ public class Person extends ClubAbstractEntity
         this.asteriskName = new JLabel("*");
         this.asteriskSurname = new JLabel("*");
         this.asteriskTel = new JLabel("*");
-
 
         setSize(450,220);
         setTitle("Person Clubber's Data");
@@ -104,19 +97,13 @@ public class Person extends ClubAbstractEntity
 
         hideAllAsterisks();
 
-        
         setVisible(false);
         addToCenter(mainGui);
-        
     }
-    
-
     //----------methods-------------------
     public boolean match(String inputId){
         return inputId.equals(this.idP) ? true: false;
-
     }
-
     protected boolean validateData(){ 
         hideAllAsterisks();
 
@@ -132,19 +119,15 @@ public class Person extends ClubAbstractEntity
         
         if (!validIdCheck) {
             asteriskId.setVisible(true);
-
         } 
         else if (!validNameCheck) {
             asteriskName.setVisible(true);
-
         } 
         else if (!validSureNameCheck) {
             asteriskSurname.setVisible(true);
-
         } 
         else if (!validTelCheck) {
             asteriskTel.setVisible(true);
-
         } 
 
         return(validIdCheck && validNameCheck && validTelCheck && validSureNameCheck);
@@ -154,10 +137,7 @@ public class Person extends ClubAbstractEntity
         this.nameP = nameT.getText();
         this.surnameP = surnameT.getText();
         this.telP = telT.getText();
-
     }
-
-
     protected void rollBack(){
         hideAllAsterisks();
 
@@ -178,7 +158,6 @@ public class Person extends ClubAbstractEntity
         asteriskSurname.setVisible(false);
         asteriskTel.setVisible(false);
     }
-    
 }
 
 
