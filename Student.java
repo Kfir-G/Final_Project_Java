@@ -40,12 +40,12 @@ public class Student extends Person
     {
         return (super.match(key) || key.substring(5).equals(this.studentIdP)) ? true : false ;
     }
+    @Override
     protected boolean validateData(){
         asteriskStudentId.setVisible(false);
-        String studentId = studentIdT.getText();
 
         boolean superCheck =  super.validateData();
-        boolean studentIdCheck = studentId.matches("[A-Z]{3}[/][0-9]*");
+        boolean studentIdCheck = studentIdT.getText().matches("[A-Z]{3}[/][0-9]*");
 
         if(!studentIdCheck && superCheck){
             asteriskStudentId.setVisible(true);

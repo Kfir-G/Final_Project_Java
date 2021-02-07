@@ -31,7 +31,9 @@ public class Soldier extends Person
         gbc.gridx = 2;
         gbc.gridy = 4;
         mainGui.add(asteriskPersonalNum,gbc);
+
         asteriskPersonalNum.setVisible(false);
+
         setVisible(false);
     }
     //------------methods--------------
@@ -40,13 +42,12 @@ public class Soldier extends Person
     {
         return (super.match(key) || key.equals(this.personalNumP)) ? true : false; 
     }
+    @Override
     protected boolean validateData(){
-        
         asteriskPersonalNum.setVisible(false);
-        String personalNum = personalNumT.getText();
 
         boolean superCheck =  super.validateData();
-        boolean personalNumCheck = personalNum.matches("[ROC][/][1-9][0-9]{6}");//TO DO
+        boolean personalNumCheck = personalNumT.getText().matches("[ROC][/][1-9][0-9]{6}");//TO DO
         //super - true need to check personalNumCheck
         //super - false 
         if(superCheck && !personalNumCheck) {
