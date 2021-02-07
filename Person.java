@@ -90,10 +90,7 @@ public class Person extends ClubAbstractEntity
         gbc.gridy = 3;
         mainGui.add(asteriskTel,gbc);
 
-        asteriskId.setForeground(Color.RED);
-        asteriskName.setForeground(Color.RED);
-        asteriskSurname.setForeground(Color.RED);
-        asteriskTel.setForeground(Color.RED);
+        setAsterisksBGtoRed();
 
         hideAllAsterisks();
 
@@ -106,7 +103,7 @@ public class Person extends ClubAbstractEntity
     }
     protected boolean validateData(){ 
         hideAllAsterisks();
-           
+
         boolean validIdCheck = idT.getText().matches("([0-9]-\\d{7}\\|[1-9])");
         boolean validNameCheck = nameT.getText().matches("[A-Z][a-z]*");
         boolean validSureNameCheck = telT.getText().matches("[A-Z][a-z]*(['-][a-zA-Z]+)*");
@@ -149,6 +146,12 @@ public class Person extends ClubAbstractEntity
         this.nameT.setText(nameP);
         this.surnameT.setText(surnameP);
         this.telT.setText(telP);
+    }
+    protected void setAsterisksBGtoRed(){
+        asteriskId.setForeground(Color.RED);
+        asteriskName.setForeground(Color.RED);
+        asteriskSurname.setForeground(Color.RED);
+        asteriskTel.setForeground(Color.RED);
     }
 }
 
