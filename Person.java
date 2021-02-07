@@ -26,11 +26,11 @@ public class Person extends ClubAbstractEntity
     
     GridBagConstraints gbc = new GridBagConstraints();
     /**
-     * 
-     * @param idP
-     * @param nameP
-     * @param surnameP
-     * @param telP
+     * Person constructor
+     * @param idP String person ID 
+     * @param nameP String name Person
+     * @param surnameP String surname Person
+     * @param telP String telhpone number of the Person
      */
     //----------constructors---------------
     public Person(String idP, String nameP, String surnameP ,String telP){

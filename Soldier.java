@@ -16,12 +16,13 @@ public class Soldier extends Person
     private JTextField personalNumT;
     //-----------constructors----------
     /**
-     * 
-     * @param idP
-     * @param nameP
-     * @param surnameP
-     * @param telP
-     * @param personalNumP
+     * Solider constructor
+     * send Person class constructor {@link Person}
+     * @param idP String solider ID 
+     * @param nameP String name solider
+     * @param surnameP String surname solider
+     * @param telP String telhpone number of the solider
+     * @param personalNumP String solider personal number
      */
     public Soldier(String idP, String nameP, String surnameP ,String telP,String personalNumP){
         super(idP,nameP,surnameP,telP);
