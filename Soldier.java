@@ -15,6 +15,14 @@ public class Soldier extends Person
 
     private JTextField personalNumT;
     //-----------constructors----------
+    /**
+     * 
+     * @param idP
+     * @param nameP
+     * @param surnameP
+     * @param telP
+     * @param personalNumP
+     */
     public Soldier(String idP, String nameP, String surnameP ,String telP,String personalNumP){
         super(idP,nameP,surnameP,telP);
         this.personalNumP = personalNumP;

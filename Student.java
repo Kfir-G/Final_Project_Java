@@ -15,6 +15,14 @@ public class Student extends Person
 
     private JTextField studentIdT;
     //-----------constructors-------------
+    /**
+     * 
+     * @param idP
+     * @param nameP
+     * @param surnameP
+     * @param telP
+     * @param studentIdP
+     */
     public Student(String idP, String nameP, String surnameP ,String telP,String studentIdP){
         super(idP,nameP,surnameP,telP);
         this.studentIdP = studentIdP;

@@ -1,12 +1,13 @@
 import javax.swing.*;
 import javax.swing.border.Border;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Serializable;
-
-
+/**
+ * ClubAbstractEntity class which inherite to Person class
+ * {@link Person} 
+ */
 public abstract class ClubAbstractEntity extends JFrame implements Serializable
 {
     //-----------data fields---------
@@ -16,6 +17,9 @@ public abstract class ClubAbstractEntity extends JFrame implements Serializable
     //private ButtonsHandler handler; 
 
     //-----------constructors--------
+    /**
+     * 
+     */
     public ClubAbstractEntity()
     {
         JPanel subJP = new JPanel();
@@ -40,15 +44,26 @@ public abstract class ClubAbstractEntity extends JFrame implements Serializable
         setLocationRelativeTo(null);
         setVisible(false);    
     }  
+    
+    /** 
+     * @param bool
+     */
     //-----------methods----------
     protected void setEnabledCancel(boolean bool){
         cancelButton.setEnabled(bool);
     }
 
+    
+    /** 
+     * @param guiComponent
+     */
     protected void addToCenter(Component guiComponent)
     {       
         mainPanel.add(guiComponent,BorderLayout.CENTER);     
     }
+    /**
+     * 
+     */
     private class ButtonsHandler implements ActionListener
     {
         @Override

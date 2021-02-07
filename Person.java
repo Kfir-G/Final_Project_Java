@@ -25,6 +25,13 @@ public class Person extends ClubAbstractEntity
     protected JPanel mainGui;
     
     GridBagConstraints gbc = new GridBagConstraints();
+    /**
+     * 
+     * @param idP
+     * @param nameP
+     * @param surnameP
+     * @param telP
+     */
     //----------constructors---------------
     public Person(String idP, String nameP, String surnameP ,String telP){
         super();
@@ -153,6 +160,7 @@ public class Person extends ClubAbstractEntity
     }
     /**
      * rollBack method set the texts that was before and hide all the Asterisks
+     * {@link #setTexts}
      */
     protected void rollBack(){
         hideAllAsterisks();
@@ -161,6 +169,7 @@ public class Person extends ClubAbstractEntity
     }
     /**
      * showDetails method show the details of the entity
+     * {@link #setTexts}
      */
     protected void showDetails(){
         setTexts();
