@@ -109,8 +109,8 @@ public class Person extends ClubAbstractEntity
 
         boolean validIdCheck = idT.getText().matches("([0-9]-\\d{7}\\|[1-9])");
         boolean validNameCheck = nameT.getText().matches("[A-Z][a-z]*");
-        boolean validSureNameCheck = telT.getText().matches("[A-Z][a-z]*(['-][a-zA-Z]+)*");
-        boolean validTelCheck = surnameT.getText().matches("\\+\\([1-9]\\d{0,2}\\)[1-9]\\d{0,2}-[1-9]\\d{6}");
+        boolean validSureNameCheck = surnameT.getText().matches("[A-Z][a-z]*(['-][a-zA-Z]+)*");
+        boolean validTelCheck = telT.getText().matches("\\+\\([1-9]\\d{0,2}\\)[1-9]\\d{0,2}-[1-9]\\d{6}");
         
         if (!validIdCheck) {
             asteriskId.setVisible(true);
@@ -128,7 +128,10 @@ public class Person extends ClubAbstractEntity
         return(validIdCheck && validNameCheck && validTelCheck && validSureNameCheck);
     }
     protected void commit(){ 
-        setTexts();
+        this.idP = idT.getText();
+        this.nameP = nameT.getText();
+        this.surnameP = surnameT.getText();
+        this.telP = telT.getText();
     }
     protected void rollBack(){
         hideAllAsterisks();

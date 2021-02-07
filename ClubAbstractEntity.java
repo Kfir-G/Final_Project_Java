@@ -4,14 +4,16 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 
-public abstract class ClubAbstractEntity extends JFrame
+
+public abstract class ClubAbstractEntity extends JFrame implements Serializable
 {
     //-----------data fields---------
     protected JPanel mainPanel;
     protected JButton okButton;
     protected JButton cancelButton;
-    private ButtonsHandler handler;
+    // private ButtonsHandler handler; 
 
     //-----------constructors--------
     public ClubAbstractEntity()
@@ -20,7 +22,7 @@ public abstract class ClubAbstractEntity extends JFrame
         this.mainPanel = new JPanel();
         this.okButton=new JButton("OK");
         this.cancelButton=new JButton("CANCEL");
-        this.handler=new ButtonsHandler();
+        ButtonsHandler handler=new ButtonsHandler();
 
         mainPanel.setLayout(new BorderLayout()); 
 
@@ -39,6 +41,10 @@ public abstract class ClubAbstractEntity extends JFrame
         setVisible(false);    
     }  
     //-----------methods----------
+    protected void unVisibleCancel(){
+        cancelButton.setVisible(false);
+    }
+
     protected void addToCenter(Component guiComponent)
     {       
         mainPanel.add(guiComponent,BorderLayout.CENTER);     
