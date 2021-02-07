@@ -1,15 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * Person class which extends ClubAbstractEntity class
+ * {@link ClubAbstractEntity}
+ */
 public class Person extends ClubAbstractEntity
 {
     //-----------data fields---------------
-    private String idP;
+    private String idP;       //personal ID
     private String nameP;    //first name
     private String surnameP; //last name
     private String telP;     //telephone
 
-    private JLabel asteriskId;
+    private JLabel asteriskId;  //lebels of asterisks
     private JLabel asteriskName;
     private JLabel asteriskSurname;
     private JLabel asteriskTel;
@@ -22,7 +25,6 @@ public class Person extends ClubAbstractEntity
     protected JPanel mainGui;
     
     GridBagConstraints gbc = new GridBagConstraints();
-
     //----------constructors---------------
     public Person(String idP, String nameP, String surnameP ,String telP){
         super();
@@ -31,11 +33,13 @@ public class Person extends ClubAbstractEntity
         this.surnameP = surnameP;
         this.telP = telP;
 
+        //JTextFields
         idT= new JTextField(30);
         nameT= new JTextField(30);
         surnameT= new JTextField(30);
         telT= new JTextField(30);
         
+        //asterisks label
         this.asteriskId = new JLabel("*");
         this.asteriskName = new JLabel("*");
         this.asteriskSurname = new JLabel("*");
@@ -50,6 +54,7 @@ public class Person extends ClubAbstractEntity
         gbc.insets = new Insets(3,0,3,10);
         gbc.anchor = GridBagConstraints.EAST;
 
+        //sets grid corrdinate each grid
         gbc.gridx = 0;
         gbc.gridy = 0;
         mainGui.add(new JLabel("ID"),gbc);
@@ -90,6 +95,7 @@ public class Person extends ClubAbstractEntity
         gbc.gridy = 3;
         mainGui.add(asteriskTel,gbc);
 
+        //set asterisk to red
         asteriskId.setForeground(Color.RED);
         asteriskName.setForeground(Color.RED);
         asteriskSurname.setForeground(Color.RED);
@@ -99,11 +105,20 @@ public class Person extends ClubAbstractEntity
 
         setVisible(false);
         addToCenter(mainGui);
-    }
+    } 
+    /** 
+     * match method is equals the ID
+     * @param inputId String type is the user input
+     * @return boolean return true if it's equal and return false else
+     */
     //----------methods-------------------
     public boolean match(String inputId){
         return inputId.equals(this.idP) ? true: false;
     }
+    /**
+     * validateData method check if the user input is valid
+     * @return boolean return true if the input is valid and false else
+     */
     protected boolean validateData(){ 
         hideAllAsterisks();
 
@@ -127,26 +142,41 @@ public class Person extends ClubAbstractEntity
 
         return(validIdCheck && validNameCheck && validTelCheck && validSureNameCheck);
     }
+    /**
+     * commit method insert the user input to the class class data fields
+     */
     protected void commit(){ 
         this.idP = idT.getText();
         this.nameP = nameT.getText();
         this.surnameP = surnameT.getText();
         this.telP = telT.getText();
     }
+    /**
+     * rollBack method set the texts that was before and hide all the Asterisks
+     */
     protected void rollBack(){
         hideAllAsterisks();
 
         setTexts();
     }
+    /**
+     * showDetails method show the details of the entity
+     */
     protected void showDetails(){
         setTexts();
     }
+    /**
+     * hideAllAsterisks method hide all asterisks
+     */
     protected void hideAllAsterisks(){
         asteriskId.setVisible(false);
         asteriskName.setVisible(false);
         asteriskSurname.setVisible(false);
         asteriskTel.setVisible(false);
     }
+    /**
+     * setTexts method sets the data fields 
+     */
     protected void setTexts(){
         this.idT.setText(idP);
         this.nameT.setText(nameP);
@@ -154,5 +184,3 @@ public class Person extends ClubAbstractEntity
         this.telT.setText(telP);
     }
 }
-
-
