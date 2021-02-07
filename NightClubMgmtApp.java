@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -20,7 +19,6 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
     private JComboBox<String> comboBox;
     private JButton sreachButton;
     private JButton createButton;
-    // private ButtonsHandler btnHandler;
     GridBagConstraints gbc = new GridBagConstraints();
 
     /**
@@ -61,6 +59,7 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
         setContentPane(startGui); 
         setResizable(false); 
         setLocationRelativeTo(null);
+        setTitle("Manager");
         setSize(420,220);
 
         /**
@@ -135,7 +134,7 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
             fos = new FileOutputStream("BKCustomers.dat");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(clubbers);
-            oos.close();//error
+            oos.close();
             fos.close();
         }
             catch (IOException e){

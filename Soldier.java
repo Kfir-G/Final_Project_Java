@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.util.*;
 import javax.swing.*;
 /**
  * Soldier class extends Person class 
@@ -73,8 +72,7 @@ public class Soldier extends Person
 
         boolean superCheck =  super.validateData();
         boolean personalNumCheck = personalNumT.getText().matches("[ROC][/][1-9][0-9]{6}");//TO DO
-        //super - true need to check personalNumCheck
-        //super - false 
+
         if(superCheck && !personalNumCheck) {
             asteriskPersonalNum.setVisible(true);
         }     
