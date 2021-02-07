@@ -10,12 +10,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
+/**
+ * NightClubMgmtApp class is handler the manegment of the night club
+ */
 public class NightClubMgmtApp extends JFrame implements WindowListener
-
 {   
-     //-----------data fields---------------
-
+    //-----------data fields---------------
     private ArrayList<ClubAbstractEntity> clubbers;
     private JComboBox<String> comboBox;
     private JButton sreachButton;
@@ -23,15 +23,16 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
     // private ButtonsHandler btnHandler;
     GridBagConstraints gbc = new GridBagConstraints();
 
-
+    /**
+     * NightClubMgmtApp constructor create Search, Create and JComboBox buttons
+     */
     public NightClubMgmtApp()
     {   
-
         String[] entityStrings = { "Person", "Soldier", "Studnet" };
         this.comboBox = new JComboBox<String>(entityStrings);
         ButtonsHandler btnHandler = new ButtonsHandler();
 
-        this.sreachButton = new JButton("Sreach");
+        this.sreachButton = new JButton("Search");
         this.createButton = new JButton("Create");
         this.createButton.addActionListener(btnHandler); 
         this.sreachButton.addActionListener(btnHandler); 
@@ -39,12 +40,10 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
         clubbers = new ArrayList<ClubAbstractEntity>();
         loadClubbersDBFromFile();
         
-
         JPanel startGui = new JPanel();
         JPanel subPanel = new JPanel();
         subPanel.setLayout(new GridBagLayout());
         gbc.insets = new Insets(3,0,3,10);
-
 
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -64,7 +63,14 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
         setLocationRelativeTo(null);
         setSize(420,220);
 
+        /**
+         * addWindowListener inner class which handler the exit
+         */
         addWindowListener(new java.awt.event.WindowAdapter() {
+            /**
+             * windowClosing method which handler the exit
+             * @param windowEvent is a WindowEvent of the exit
+             */
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
             writeClubbersDBtoFile();
@@ -72,18 +78,17 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
             }
         });
 
-        setVisible(true);
-        
+        setVisible(true);       
     }
+    /**
+     * manipulateDB method show and handle the menu
+     */
     private void manipulateDB(){
-            
             String input = JOptionPane.showInputDialog(this,"Please Enter The Clubber's Key"); 
             boolean found = false;
 
-
             if(input != null){
                 for(ClubAbstractEntity clubber : clubbers){
-                
                     if(clubber.match(input)){
                         found = true;
                         clubber.showDetails();
@@ -91,16 +96,14 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
                         break;
                     }
                 }
-    
                 if(!found){
-                //MessageDialog
-                JOptionPane.showMessageDialog(this,"Clubber with key "+input+" does not exist","Warning",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this,"Clubber with key "+input+" does not exist","Warning",JOptionPane.INFORMATION_MESSAGE);
                 }
             }
-
     }
-
-    
+    /**
+     * loadClubbersDBFromFile method load from the file BKCustomers.dat
+     */
     private void loadClubbersDBFromFile()
     {
             FileInputStream fis;
@@ -114,13 +117,16 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
          } catch (Exception e){
 
         }
-     
+
         //Read data from file, create the corresponding objects and put them
         //into clubbers ArrayList. For example:
         clubbers.add(new Person("0-2423535|3", "Mark", "Mc'Cormic","+(1)4-9520205"));
         clubbers.add(new Soldier("0-2223335|1", "Zohar", "Couper-Berg","+(44)206-8208167", "O/4684109"));
         clubbers.add(new Student("2-5554445|3", "Avi", "Avrahami-O'Mally","+(972)50-6663210", "SCE/12345"));
     }
+    /**
+     * writeClubbersDBtoFile method write to the file BKCustomers.dat
+     */
     private void writeClubbersDBtoFile()
     {
         FileOutputStream fos;
@@ -137,12 +143,11 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
                         "Error has been accord "+e,
                         "Error", JOptionPane.ERROR_MESSAGE);
             }
-
     }
-        
-
+    /**
+     * createObject method is create the user input entity
+     */
     private void createObject(){
-
         String create =  comboBox.getSelectedItem()+"";
 
         switch (create) {
@@ -158,10 +163,16 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
         }
         clubbers.get(clubbers.size()-1).setEnabledCancel(false);
         clubbers.get(clubbers.size()-1).setVisible(true);
-
     }
+    /**
+     * ButtonsHandler which listen to buttons in the menu
+     */
     private class ButtonsHandler implements ActionListener
     {
+        /**
+         * actionPerformed listen to Sreach and Create buttons
+         * @param e ActionEvent of the button
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == sreachButton){
@@ -170,13 +181,11 @@ public class NightClubMgmtApp extends JFrame implements WindowListener
             if (e.getSource() == createButton){
                 createObject();                
             }
-
         } 
     }
-
-
-    
-
+    /** 
+     * static main method which handle user's input and handle the draw pannel
+     */
     public static void main(String[] args)
     {
         NightClubMgmtApp appliction = new NightClubMgmtApp();

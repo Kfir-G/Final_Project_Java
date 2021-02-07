@@ -60,7 +60,7 @@ public abstract class ClubAbstractEntity extends JFrame implements Serializable
         mainPanel.add(guiComponent,BorderLayout.CENTER);     
     }
     /**
-     * ButtonsHandler which listen to buttons
+     * ButtonsHandler which listen to buttons 
      */
     private class ButtonsHandler implements ActionListener ,Serializable
     {
