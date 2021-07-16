@@ -1,2 +1,3 @@
 # Final_Project_Java
- Final project in Java couse with Moshe Deutsch
+ Nightclub Management Tool Project
+ Developed customer management information system as part of a university project, using Java and fully documented in JavaDoc.
